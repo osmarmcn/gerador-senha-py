@@ -17,17 +17,17 @@ cor_cinza = 'darkgray'
 
 janela = Tk()
 janela.title('Gerador de senha')
-janela.geometry('380x390')
+janela.geometry('300x390')
 janela.config(bg=cor_branca)
 
 estilo = ttk.Style(janela)
 estilo.theme_use('clam')
 
 
-frame_nav =Frame(janela, width=380, height=60, bg=cor_branca, padx=0, pady=0, relief='flat')
+frame_nav =Frame(janela, width=300, height=60, bg=cor_branca, padx=0, pady=0, relief='flat')
 frame_nav.grid(row=0, column=0, sticky=NSEW)
 
-frame_main =Frame(janela, width=380, height=320, bg=cor_preta, padx=0, pady=0, relief='flat')
+frame_main =Frame(janela, width=300, height=320, bg=cor_preta, padx=0, pady=0, relief='flat')
 frame_main.grid(row=1, column=0, columnspan=10, sticky=NSEW)
 
 # -------------- nav ----------------
@@ -43,12 +43,12 @@ logo.place(x=3, y=0)
 nome = Label(frame_nav, text='Gerador de senhas', width=200, height=40, padx=0, relief='flat', anchor='nw', font=('Ivy 16 bold'), bg=cor_branca, fg=cor_preta)
 nome.place(x=56, y=1)
 
-nome = Label(frame_nav, text='', width=380, height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 1'), bg=cor_vermelha, fg=cor_preta)
+nome = Label(frame_nav, text='', width=300, height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 1'), bg=cor_vermelha, fg=cor_preta)
 nome.place(x=0, y=38)
 
 # -------------- main ----------------
 
-senha = Label(frame_main, text='- - - -', width=28, height=3, padx=0, relief='solid', anchor='center', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
+senha = Label(frame_main, text='- - - -', width=25, height=3, padx=0, relief='solid', anchor='center', font=('Ivy 12 bold'), bg=cor_branca, fg=cor_preta)
 senha.grid(row=0, column=0, columnspan=1, sticky=NSEW, padx=3 , pady=10)
 
 
@@ -67,7 +67,7 @@ numeros = '123456789'
 simbolos = '[]{}()*;:/,_-'
 
 frame_caract =Frame(frame_main, width=295, height=210, bg=cor_branca, padx=0, pady=0, relief='flat')
-frame_caract.grid(row=3, column=0, sticky=NSEW)
+frame_caract.grid(row=3, column=0, sticky=NSEW, columnspan=10)
 
 # -------------- main: check ----------------
 estado_1 = StringVar()
@@ -108,8 +108,11 @@ info.grid(row=3, column=1, sticky=NW, padx=2 , pady=5)
 
 # -------------- main: botão ----------------
 
-botao = Label(frame_caract, text='Criar senha',width=32, height=2, relief='flat',  anchor='center', font=('Ivy 10 bold'), bg=cor_cinza, fg=cor_branca)
+botao = Label(frame_caract, text='Criar senha',width=40, height=2, relief='flat',  anchor='center', font=('Ivy 10 bold'), bg=cor_cinza, fg=cor_branca)
 botao.grid(row=5, column=0, sticky=NSEW, padx=0 , pady=20, columnspan=5)
+
+copiar = Label(frame_main, text='Copiar',width=7, height=2, relief='raised',  anchor='center', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
+copiar.grid(row=0, column=1, sticky=NSEW, padx=5 , pady=10, columnspan=1)
 
 
 janela.mainloop()
