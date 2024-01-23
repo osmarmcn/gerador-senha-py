@@ -17,7 +17,7 @@ cor_cinza = 'darkgray'
 
 janela = Tk()
 janela.title('Gerador de senha')
-janela.geometry('380x360')
+janela.geometry('380x390')
 janela.config(bg=cor_branca)
 
 estilo = ttk.Style(janela)
@@ -27,8 +27,8 @@ estilo.theme_use('clam')
 frame_nav =Frame(janela, width=380, height=60, bg=cor_branca, padx=0, pady=0, relief='flat')
 frame_nav.grid(row=0, column=0, sticky=NSEW)
 
-frame_main =Frame(janela, width=280, height=320, bg=cor_preta, padx=0, pady=0, relief='flat')
-frame_main.grid(row=1, column=0, columnspan=6, sticky=NSEW)
+frame_main =Frame(janela, width=380, height=320, bg=cor_preta, padx=0, pady=0, relief='flat')
+frame_main.grid(row=1, column=0, columnspan=10, sticky=NSEW)
 
 # -------------- nav ----------------
 
@@ -69,7 +69,7 @@ simbolos = '[]{}()*;:/,_-'
 frame_caract =Frame(frame_main, width=295, height=210, bg=cor_branca, padx=0, pady=0, relief='flat')
 frame_caract.grid(row=3, column=0, sticky=NSEW)
 
-
+# -------------- main: check ----------------
 estado_1 = StringVar()
 estado_1.set(False)
 
@@ -106,7 +106,10 @@ valor_4.grid(row=3 , column=0, sticky='nw', padx=2, pady=5)
 info = Label(frame_caract, text='Caractere ', height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
 info.grid(row=3, column=1, sticky=NW, padx=2 , pady=5)
 
+# -------------- main: botão ----------------
 
+botao = Label(frame_caract, text='Criar senha',width=32, height=2, relief='flat',  anchor='center', font=('Ivy 10 bold'), bg=cor_cinza, fg=cor_branca)
+botao.grid(row=5, column=0, sticky=NSEW, padx=0 , pady=20, columnspan=5)
 
 
 janela.mainloop()
