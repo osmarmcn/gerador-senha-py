@@ -46,6 +46,27 @@ nome.place(x=56, y=1)
 nome = Label(frame_nav, text='', width=300, height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 1'), bg=cor_vermelha, fg=cor_preta)
 nome.place(x=0, y=38)
 
+# -------------- function ----------------
+
+
+def criar_senha():
+    alfabeto_maiuscula = string.ascii_uppercase
+    alfabeto_minuscula = string.ascii_lowercase
+    numeros = '123456789'
+    simbolos = '[]{}()*;:/,_-'
+
+    global combinar
+
+    
+
+    combinar = alfabeto_maiuscula + alfabeto_minuscula + numeros + simbolos
+    password = "".join(random.sample(combinar, 8))
+    print(password)
+
+criar_senha()
+
+
+
 # -------------- main ----------------
 
 senha = Label(frame_main, text='- - - -', width=25, height=3, padx=0, relief='solid', anchor='center', font=('Ivy 12 bold'), bg=cor_branca, fg=cor_preta)
