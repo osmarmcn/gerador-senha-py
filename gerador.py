@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import ImageTk, Image
+from tkinter import messagebox
 
 import string
 import random
@@ -88,7 +89,21 @@ def criar_senha():
 
     # combinar = alfabeto_maiuscula + alfabeto_minuscula + numeros + simbolos
     password = "".join(random.sample(combinar, comprimento))
-    print(password)
+    
+    senha['text'] = password
+
+
+    def copiar_senha():
+        info = password
+        frame_main.clipboard_clear()
+        frame_main.clipboard_append(info)
+
+
+        messagebox.showinfo('sucesso', "A senha foi copiada com sucesso!")
+    
+    copiar = Button(frame_main, command=copiar_senha, text='Copiar',width=7, height=2, relief='raised',  anchor='center', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
+    copiar.grid(row=0, column=1, sticky=NSEW, padx=5 , pady=10, columnspan=1)
+
 
 
 
@@ -130,7 +145,7 @@ info.grid(row=0, column=1, sticky=NW, padx=2 , pady=5)
 estado_2 = StringVar()
 estado_2.set(False)
 
-valor_2 = Checkbutton(frame_caract, width=1, var=estado_2, onvalue=alfabeto_maiuscula, offvalue='off', relief='flat',bg=cor_branca)
+valor_2 = Checkbutton(frame_caract, width=1, var=estado_2, onvalue=alfabeto_minuscula, offvalue='off', relief='flat',bg=cor_branca)
 valor_2.grid(row=1 , column=0, sticky='nw', padx=2, pady=5)
 
 info = Label(frame_caract, text='Letras Minusculas ', height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
@@ -139,28 +154,25 @@ info.grid(row=1, column=1, sticky=NW, padx=2 , pady=5)
 estado_3 = StringVar()
 estado_3.set(False)
 
-valor_3 = Checkbutton(frame_caract, width=1, var=estado_3, onvalue=alfabeto_maiuscula, offvalue='off', relief='flat',bg=cor_branca)
+valor_3 = Checkbutton(frame_caract, width=1, var=estado_3, onvalue=numeros, offvalue='off', relief='flat',bg=cor_branca)
 valor_3.grid(row=2 , column=0, sticky='nw', padx=2, pady=5)
 
-info = Label(frame_caract, text='Símbolos ', height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
+info = Label(frame_caract, text='Números', height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
 info.grid(row=2, column=1, sticky=NW, padx=2 , pady=5)
 
 estado_4 = StringVar()
 estado_4.set(False)
 
-valor_4 = Checkbutton(frame_caract, width=1, var=estado_4, onvalue=alfabeto_maiuscula, offvalue='off', relief='flat',bg=cor_branca)
+valor_4 = Checkbutton(frame_caract, width=1, var=estado_4, onvalue=simbolos, offvalue='off', relief='flat',bg=cor_branca)
 valor_4.grid(row=3 , column=0, sticky='nw', padx=2, pady=5)
 
-info = Label(frame_caract, text='Caractere ', height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
+info = Label(frame_caract, text='Símbolos', height=1, padx=0, relief='flat', anchor='nw', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
 info.grid(row=3, column=1, sticky=NW, padx=2 , pady=5)
 
 # -------------- main: botão ----------------
 
 botao = Button(frame_caract, command=criar_senha, text='Criar senha',width=40, height=2, relief='flat',  anchor='center', font=('Ivy 10 bold'), bg=cor_cinza, fg=cor_branca)
 botao.grid(row=5, column=0, sticky=NSEW, padx=0 , pady=20, columnspan=5)
-
-copiar = Button(frame_main, text='Copiar',width=7, height=2, relief='raised',  anchor='center', font=('Ivy 10 bold'), bg=cor_branca, fg=cor_preta)
-copiar.grid(row=0, column=1, sticky=NSEW, padx=5 , pady=10, columnspan=1)
 
 
 janela.mainloop()
